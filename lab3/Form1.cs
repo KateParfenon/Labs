@@ -44,20 +44,7 @@ namespace lab3
 
                 }
             }
-            //чтобы при заполнении показывалость сразу какой напиток следующий
-            var Queue = this.drinksList[0];
-            if (Queue is Juice)
-            {
-                txtQueue.Text = "Следующий напиток: Сок";
-            }
-            else if (Queue is Soda)
-            {
-                txtQueue.Text = "Следующий напиток: Газировка";
-            }
-            else if (Queue is Alcohol)
-            {
-                txtQueue.Text = "Следующий напиток: Алкоголь";
-            }
+            QueueInfo();
             //Инфа о количестве нпитков
             ShowInfo();
         }
@@ -93,6 +80,28 @@ namespace lab3
             txtInfo.Text += "\n";
             txtInfo.Text += String.Format("{0}\t{1}\t{2}", JuiceCount, SodaCount, AlcoholCount);
         }
+        private void QueueInfo()
+        {
+            var str = "Очередь:\n";
+            for (int i = 0; i < drinksList.Count; i++)
+            {
+                if (this.drinksList[i] is Juice)
+                {
+                    str += "Сок\n";
+                }
+                //Если газировка то... и т.д
+                else if (this.drinksList[i] is Soda)
+                {
+                    str += "Газировка\n";
+                }
+                else if (this.drinksList[i] is Alcohol)
+                {
+                    str += "Алкоголь\n";
+                }
+
+            }
+            txtQueue.Text = str;
+        }
         //кнопка взять
         private void BtnGet_Click(object sender, EventArgs e)
         {
@@ -105,32 +114,10 @@ namespace lab3
             }
             var Drinks = this.drinksList[0];
 
-           //Если элементов 1 то он последний и нужно убирать уже очередь
+            QueueInfo();
 
-            if (this.drinksList.Count == 1)
-            {
-                txtQueue.Text = "Это последний напиток в автомате";
-                
-            }
-            //Если еще не 1 элемент то проверяем следующий и пишем какой он
-            else
-            {
-                var Queue = this.drinksList[1];
-                if (Queue is Juice)
-                {
-                    txtQueue.Text = "Следующий напиток: Сок";
-                }
-                else if (Queue is Soda)
-                {
-                    txtQueue.Text = "Следующий напиток: Газировка";
-                }
-                else if (Queue is Alcohol)
-                {
-                    txtQueue.Text = "Следующий напиток: Алкоголь";
-                }
-            }
             //убираем  первый элемент
-            
+
             this.drinksList.RemoveAt(0);
             //Показываем его свойства
             txtOut.Text = Drinks.GetInfo();

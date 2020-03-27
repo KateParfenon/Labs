@@ -8,11 +8,15 @@ using System.Threading.Tasks;
 namespace lab3
 {
     //тут перечислили фрукты
-    public enum FruitType { Яблоко,Груша,Вишня,Гранат,Персик };
-    
+    public enum FruitType
+    {
+        Apple  , Pear  , Cherry  , Orange , Peach
+    };
+
     //для класса Juice - родительский класс  Drinks
     public class Juice : Drinks
     {
+       
         //Свойства из какого фрукта и наличие мякоти
         public FruitType type =0; 
         public bool pulp = false;
@@ -20,15 +24,36 @@ namespace lab3
         //Переопределяем GetInfo 
         public override String GetInfo()
         {
+            
             var str = "Сок";
-            str += String.Format("\nИспользованный фрукт: {0}", this.type);
+
+            int index = Array.IndexOf(Enum.GetValues(type.GetType()), type);
+            switch (index)
+            {
+                case 0:
+                    str += "\nИспользованный фрукт: Яблоко";
+                    break;
+                case 1:
+                    str += "\nИспользованный фрукт: Груша ";
+                    break;
+                case 2:
+                    str += "\nИспользованный фрукт: Вишня";
+                    break;
+                case 3:
+                    str += "\nИспользованный фрукт: Апельсин";
+                    break;
+                case 4:
+                    str += "\nИспользованный фрукт: Персик";
+                    break;
+
+            }
             if (pulp == true)
             {
-                str += String.Format("\nС мякотью");
+                str += "\nС мякотью";
             }
             else
             { 
-            str += String.Format("\nБез мякоти");
+            str += "\nБез мякоти";
             }
             str += String.Format("\nОбъём: {0}", this.volume);
 
@@ -62,18 +87,30 @@ namespace lab3
         public SodaType type = 0; 
         public int bubbles = 0;
 
-        Dictionary<string, string> Types = new Dictionary<string, string>
-        {
-            ["Coca_Cola"] = "Кока-Кола",
-            ["Pepsi"] = "Пепси",
-            ["Sprie"] = "Спрайт",
-            ["Fanta"] = "Фанта",
-            ["Mirinda"] = "Миринда"
-        };
+        
         public override String GetInfo()
         {
             var str = "Газировка";
-            str += String.Format("\nВид: {0}", this.type);
+
+            int index = Array.IndexOf(Enum.GetValues(type.GetType()), type);
+            switch (index)
+            {
+                case 0:
+                    str += "\nВид:Coca-Cola";
+                    break;
+                case 1:
+                    str += "\nВид:Pepsi";
+                    break;
+                case 2:
+                    str += "\nВид:Sprie";
+                    break;
+                case 3:
+                    str += "\nВид:Fanta";
+                    break;
+                case 4:
+                    str += "\nВид:Mirinda";
+                    break;
+            }
             str += String.Format("\nКоличество пузыриков: {0}", this.bubbles);
             str += String.Format("\nОбъём: {0}", this.volume);
             return str;

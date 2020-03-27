@@ -56,18 +56,18 @@
             // 
             // txtOut
             // 
-            this.txtOut.Location = new System.Drawing.Point(10, 137);
+            this.txtOut.Location = new System.Drawing.Point(10, 98);
             this.txtOut.Name = "txtOut";
             this.txtOut.ReadOnly = true;
-            this.txtOut.Size = new System.Drawing.Size(189, 97);
+            this.txtOut.Size = new System.Drawing.Size(196, 97);
             this.txtOut.TabIndex = 2;
             this.txtOut.Text = "";
             // 
             // btnGet
             // 
-            this.btnGet.Location = new System.Drawing.Point(207, 137);
+            this.btnGet.Location = new System.Drawing.Point(10, 201);
             this.btnGet.Name = "btnGet";
-            this.btnGet.Size = new System.Drawing.Size(95, 97);
+            this.btnGet.Size = new System.Drawing.Size(196, 70);
             this.btnGet.TabIndex = 3;
             this.btnGet.Text = "Взять";
             this.btnGet.UseVisualStyleBackColor = true;
@@ -75,10 +75,10 @@
             // 
             // txtQueue
             // 
-            this.txtQueue.Location = new System.Drawing.Point(10, 98);
+            this.txtQueue.Location = new System.Drawing.Point(212, 98);
             this.txtQueue.Name = "txtQueue";
             this.txtQueue.ReadOnly = true;
-            this.txtQueue.Size = new System.Drawing.Size(290, 33);
+            this.txtQueue.Size = new System.Drawing.Size(88, 173);
             this.txtQueue.TabIndex = 4;
             this.txtQueue.Text = "";
             // 
@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 238);
+            this.ClientSize = new System.Drawing.Size(319, 285);
             this.Controls.Add(this.txtQueue);
             this.Controls.Add(this.btnGet);
             this.Controls.Add(this.txtOut);
