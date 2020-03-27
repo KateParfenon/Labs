@@ -27,26 +27,16 @@ namespace lab3
             
             var str = "Сок";
 
-            int index = Array.IndexOf(Enum.GetValues(type.GetType()), type);
-            switch (index)
+            var mapping = new Dictionary<FruitType, String> //Не получалось,потому что писала String string или int string и пыталась индексы связать
             {
-                case 0:
-                    str += "\nИспользованный фрукт: Яблоко";
-                    break;
-                case 1:
-                    str += "\nИспользованный фрукт: Груша ";
-                    break;
-                case 2:
-                    str += "\nИспользованный фрукт: Вишня";
-                    break;
-                case 3:
-                    str += "\nИспользованный фрукт: Апельсин";
-                    break;
-                case 4:
-                    str += "\nИспользованный фрукт: Персик";
-                    break;
+                [FruitType.Apple] = "\nИспользованный фрукт: Яблоко",
+                [FruitType.Pear] = "\nИспользованный фрукт: Груша ",
+                [FruitType.Cherry] = "\nИспользованный фрукт: Вишня",
+                [FruitType.Orange] = "\nИспользованный фрукт: Апельсин",
+                [FruitType.Peach] = "\nИспользованный фрукт: Персик",
+            };
+            str += mapping[type];
 
-            }
             if (pulp == true)
             {
                 str += "\nС мякотью";
@@ -92,25 +82,15 @@ namespace lab3
         {
             var str = "Газировка";
 
-            int index = Array.IndexOf(Enum.GetValues(type.GetType()), type);
-            switch (index)
+            var mapping = new Dictionary<SodaType, String> //Не получалось,потому что писала String string или int string и пыталась индексы связать
             {
-                case 0:
-                    str += "\nВид:Coca-Cola";
-                    break;
-                case 1:
-                    str += "\nВид:Pepsi";
-                    break;
-                case 2:
-                    str += "\nВид:Sprie";
-                    break;
-                case 3:
-                    str += "\nВид:Fanta";
-                    break;
-                case 4:
-                    str += "\nВид:Mirinda";
-                    break;
-            }
+                [SodaType.Coca_Cola] = "\nВид:Coca-Cola",
+                [SodaType.Pepsi] = "\nВид:Pepsi",
+                [SodaType.Sprie] = "\nВид:Sprie",
+                [SodaType.Fanta] = "\nВид:Fanta",
+                [SodaType.Mirinda] = "\nВид:Mirinda",
+            };
+            str += mapping[type];
             str += String.Format("\nКоличество пузыриков: {0}", this.bubbles);
             str += String.Format("\nОбъём: {0}", this.volume);
             return str;
