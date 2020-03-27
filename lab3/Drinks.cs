@@ -107,7 +107,7 @@ namespace lab3
         };
         }
     }
-    public enum AlcoType { Пиво,Водка,Вино,Шампанское,Виски};
+    public enum AlcoType { Bear,Vodka,Wine, Champagne, Whiskey };
 
     //для класса Alcohol - родительский класс  Drinks
     public class Alcohol : Drinks
@@ -118,8 +118,15 @@ namespace lab3
         public override String GetInfo()
         {
             var str = "Алкоголь";
-            str += String.Format("\nКрепость: {0}", this.alcoContent);
-            str += String.Format("\nТип: {0}", this.type);
+            var mapping = new Dictionary<AlcoType, String> 
+            {
+                [AlcoType.Bear] = "\nТип:Пиво",
+                [AlcoType.Vodka] = "\nТип:Водка",
+                [AlcoType.Wine] = "\nТип:Вино",
+                [AlcoType.Champagne] = "\nТип:Шампанское",
+                [AlcoType.Whiskey] = "\nТип:Виски",
+            };
+            str += mapping[type];
             str += String.Format("\nОбъём: {0}", this.volume);
             return str;
         }
